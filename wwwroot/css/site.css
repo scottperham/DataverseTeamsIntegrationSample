@@ -13,6 +13,10 @@ body {
     font-size: 14px;
     color: #616161;
 }
+a {
+    color: rgb(98,100,167);
+    text-decoration: none;
+}
 
 div.title {
     color: #424242;
@@ -32,7 +36,7 @@ div.footer {
     color: #424242;
     font-weight: 400;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 div.toolbar {
@@ -57,7 +61,7 @@ div.container {
 }
 
 table {
-    margin-top: 20px;
+    margin-top: 50px;
     width: 100%;
 }
 
