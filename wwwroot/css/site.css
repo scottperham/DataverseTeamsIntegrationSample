@@ -1,0 +1,75 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+/*
+    Teams look and feel
+*/
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    font-family: "Segoe UI", system-ui, "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+    font-size: 14px;
+    color: #616161;
+}
+
+div.title {
+    color: #424242;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+}
+
+div.text {
+    font-size: 18px;
+    color: #424242;
+    font-weight: 400;
+    text-align: center;
+}
+
+div.footer {
+    color: #424242;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 20px;
+}
+
+div.toolbar {
+    background-color: #f5f5f5;
+    box-shadow: 0 5px 5px #eeeeee;
+    padding: 0 30px;
+}
+
+    div.toolbar button {
+        border: 0;
+        line-height: 40px;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    div.toolbar button:hover {
+        color: rgb(98,100,167);
+    }
+
+div.container {
+    padding: 30px;
+}
+
+table {
+    margin-top: 20px;
+    width: 100%;
+}
+
+    table tr th {
+        font-size: 12px;
+        line-height: 24px;
+        font-weight: normal;
+        text-align: left;
+        border-bottom: solid 2px #dfdfdf;
+    }
+
+    table tr td {
+        line-height: 32px;
+        border-bottom: solid 2px #dfdfdf;
+    }
