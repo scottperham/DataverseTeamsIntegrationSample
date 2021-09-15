@@ -56,6 +56,89 @@ div.toolbar {
         color: rgb(98,100,167);
     }
 
+
+.ui-dialog {
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px 30px;
+    top: 0;
+    border: solid 1px #ccc;
+}
+
+.ui-widget-content {
+    top: 0;
+}
+
+.ui-dialog-titlebar {
+    display: none;
+}
+
+.ui-dialog .title-container {
+}
+
+        .ui-dialog .title-container .title {
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .ui-dialog .title-container .text {
+            text-align: left;
+            font-size: 14px;
+        }
+
+.ui-dialog-titlebar-close {
+    display: none;
+}
+
+.ui-dialog-buttonpane {
+    background-color: white;
+    padding: 10px;
+    text-align: right;
+    border-radius: 0 0 5px 5px;
+}
+
+.ui-dialog-buttonpane button {
+    background-color: white;
+    border: solid 1px #ccc;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+    .ui-dialog-buttonpane button.primary {
+        background-color: #6264A7;
+        color: white;
+    }
+
+.ui-dialog form {
+    margin-top: 20px;
+}
+
+.ui-dialog label {
+    display: block;
+    color: #616161;
+}
+
+.ui-dialog input {
+    border: 0;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    padding: 5px;
+    font-size: 14px;
+    outline: none;
+    width: 100%;
+}
+
+    .ui-dialog input:focus {
+        border-bottom: solid 2px #6264A7;
+    }
+
+.ui-dialog input:focus {
+    border: 0;
+}
+
 div.container {
     padding: 30px;
 }

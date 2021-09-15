@@ -77,6 +77,71 @@ $(async () => {
 		return result.value;
 	}
 
+	const createAccount = async (accountName) => {
+		const response = await fetch("https://itorgdev.crm11.dynamics.com/api/data/v9.1/accounts", {
+			method: "POST",
+			body: JSON.stringify({name: accountName}),
+			headers: {
+				"Content-Type": "application/json",
+				"Authorization": "bearer " + accessToken,
+				"OData-MaxVersion": "4.0",
+				"OData-Version": "4.0"
+			}
+		});
+
+		if (!response.ok) {
+			console.error(response.status);
+			return false;
+		}
+
+		return true;
+	}
+
+	$("#newAccount").button().on("click", () => {
+		dialog.dialog("open").position({
+			my: "center",
+			at: "center",
+			of: window
+		});
+	});
+
+	dialog = $("#dialog").dialog({
+		autoOpen: false,
+		height: 300,
+		width: 350,
+		modal: true,
+		buttons: [
+			{
+				text: "Cancel",
+				click: () => dialog.dialog("close")
+			},
+			{
+				text: "Create account",
+				click: async () => {
+					if (await createAccount($("#accountName").val())) {
+						dialog.dialog("close");
+						await reloadData();
+					}
+				},
+				class: "primary"
+			}
+		],
+		dialogClass: "no-close"
+	});
+
+	const reloadData = async () => {
+
+		const accounts = await fetchAccountsFromDataverse(accessToken);
+
+		$("#loading").hide();
+
+		$("#data tr.dynamic").remove();
+
+		for (let i = 0; i < accounts.length; i++) {
+			$("#data").html($("#data").html() + `<tr class='dynamic'><td>${accounts[i].name}</td><td>${accounts[i].primarycontactid?.fullname || "<em>None Set</em>"}</td><td>${accounts[i].primarycontactid?.emailaddress1 || "<em>None Set</em>"}</td></tr>`);
+		}
+	}
+
 	try {
 		await initialiseTeams();
 	}
@@ -85,15 +150,10 @@ $(async () => {
 		return;
 	}
 
+
 	const teamsToken = await getTeamsToken();
 
 	const accessToken = await getOnBehalfOfToken(teamsToken);
 
-	const accounts = await fetchAccountsFromDataverse(accessToken);
-
-	$("#loading").hide();
-
-	for (let i = 0; i < accounts.length; i++) {
-		$("#data").html($("#data").html() + `<tr><td>${accounts[i].name}</td><td>${accounts[i].primarycontactid?.fullname || "<em>None Set</em>"}</td><td>${accounts[i].primarycontactid?.emailaddress1 || "<em>None Set</em>"}</td></tr>`);
-	}
+	await reloadData();
 });

@@ -4,13 +4,14 @@
     <meta charset="utf-8" />
     <title></title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://statics.teams.cdn.office.net/sdk/v1.10.0/js/MicrosoftTeams.min.js" integrity="sha384-6oUzHUqESdbT3hNPDDZUa/OunUj5SoxuMXNek1Dwe6AmChzqc6EJhjVrJ93DY/Bv" crossorigin="anonymous"></script>
     <script src="js/site.js"></script>
     <link rel="stylesheet" href="css/site.css" />
 </head>
 <body>
     <div class="toolbar">
-        <button>+ Add</button>
+        <button id="newAccount">+ Add</button>
     </div>
 
     <div class="container">
@@ -22,6 +23,16 @@
             <tr><th>Name</th><th>Primary Contact</th><th>Email</th></tr>
             <tr id="loading" style="text-align: center;"><td colspan="3">Loading...</td></tr>
         </table>
+
+        <div class="dialog" id="dialog" style="top: 0;">
+            <div class="title-container">
+                <div class="title">Create new account</div>
+                <div class="text">This will create an account in Dataverse</div>
+            </div>
+            <form id="form">
+                <label>Account</label><input type="text" id="accountName" />
+            </form>
+        </div>
 
         <div class="footer"><a href="https://github.com/scottperham/DataverseTeamsIntegrationSample" target="_blank">Source available on GitHub</a></div>
 
